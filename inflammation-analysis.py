@@ -21,11 +21,14 @@ def main(args):
     for filename in InFiles:
         InflammationData = models.load_csv(filename)
 
-        view_data = {'average': models.daily_mean(InflammationData),
-                      'max': models.daily_max(InflammationData),
-                      'min': models.daily_min(InflammationData)}
+        view_data = {
+            'average': models.daily_mean(InflammationData),
+            'max': models.daily_max(InflammationData),
+            'min': models.daily_min(InflammationData)
+        }
 
         views.visualize(view_data)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
